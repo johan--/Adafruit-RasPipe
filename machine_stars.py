@@ -4,6 +4,7 @@ import sys
 import random
 
 import pygame
+import os
 
 os.putenv('SDL_FBDEV', '/dev/fb1')
 
