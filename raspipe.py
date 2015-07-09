@@ -2,6 +2,7 @@
 
 import getopt
 import re
+import os
 import sys
 import time
 
@@ -22,6 +23,7 @@ class RasPipe:
     def __init__(self, infile):
         """Create a RasPipe object for a given input file."""
         self.infile = infile
+        os.putenv('SDL_FBDEV', '/dev/fb1')
 
         pygame.init()
         pygame.mouse.set_visible(False)
@@ -41,7 +43,7 @@ class RasPipe:
 
     def set_font(self, size):
         """Set a display font of a given size."""
-        self.font = pygame.font.Font(None, size) 
+        self.font = pygame.font.Font(None, size)
 
     def toggle_stars(self):
         self.stars = not self.stars
@@ -96,7 +98,7 @@ class RasPipe:
                 if event.type == pygame.QUIT:
                     sys.exit()
                 if event.type == pygame.MOUSEBUTTONDOWN:
-                    self.toggle_stars()                 
+                    self.toggle_stars()
 
             self.render_frame()
 
