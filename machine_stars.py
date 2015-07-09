@@ -5,6 +5,8 @@ import random
 
 import pygame
 
+os.putenv('SDL_FBDEV', '/dev/fb1')
+
 text_color = pygame.Color(0, 0, 0)
 bg_color = pygame.Color(255, 255, 255)
 
@@ -59,7 +61,7 @@ while len(display_lines) > 0:
     y = 0 + offset
     for render_me in display_lines:
         font_size = font_size - 2
-        font = pygame.font.Font(None, font_size) 
+        font = pygame.font.Font(None, font_size)
         input_text_surface = font.render(render_me.rstrip(), True, text_color)
         input_text_rect = input_text_surface.get_rect(center=(64, y))
         screen.blit(input_text_surface, input_text_rect)
